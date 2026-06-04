@@ -1,0 +1,31 @@
+name: Autobump casks
+
+on:
+  schedule:
+    - cron: "30 3 * * *" # daily, ~03:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: macos-latest
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@675fcd27b59e54d310c5484c8c27c01d03da660c
+        with:
+          brew-gh-api-token: ""
+
+      - name: Configure git identity
+        run: |
+          git config --global user.name  "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Bump outdated casks
+        uses: Homebrew/actions/bump-packages@675fcd27b59e54d310c5484c8c27c01d03da660c
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          casks: raycast@beta
+          fork: false

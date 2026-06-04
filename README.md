@@ -1,18 +1,15 @@
-# Josephyaa Tap
+# josephyaa/tap
 
-## How do I install these formulae?
+Personal Homebrew tap.
 
-`brew install josephyaa/tap/<formula>`
+## Install
 
-Or `brew tap josephyaa/tap` and then `brew install <formula>`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "josephyaa/tap"
-brew "<formula>"
+```sh
+brew install --cask josephyaa/tap/raycast@beta
 ```
 
-## Documentation
+## Casks
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+| Cask | Notes |
+|---|---|
+| `raycast@beta` | Raycast for Mac v2. |

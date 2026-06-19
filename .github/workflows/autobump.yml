@@ -28,6 +28,9 @@ jobs:
           username: ${{ steps.app-token.outputs.app-slug }}[bot]
           token: ${{ steps.app-token.outputs.token }}
 
+      - name: Trust custom tap
+        run: brew tap-new --force josephyaa/tap
+
       - name: Bump outdated casks
         uses: Homebrew/actions/bump-packages@675fcd27b59e54d310c5484c8c27c01d03da660c
         with:
